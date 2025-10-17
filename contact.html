@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>designedbyraph — Contact</title>
+  <meta name="description" content="Contact designedbyraph">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-contact">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">designedbyraph</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="bg-glow"></div>
+
+    <section class="contact container">
+      <h1>Contact</h1>
+      <p class="lede">Want to work together? Share a brief and I’ll reply within a few days.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:mailforayomide@gmail.com.com">mailforayomide@gmail.com.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p><a href="tel:+2349033321251">+234 90 333 21251</a></p>
+        </div>
+        <div class="contact-card wide">
+          <h3>Message</h3>
+          <form id="contact-form" onsubmit="return handleContact(event)">
+            <label><input type="text" name="name" placeholder="Your name" required></label>
+            <label><input type="email" name="email" placeholder="Your email" required></label>
+            <label><textarea name="message" placeholder="Short message" required></textarea></label>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <strong>designedbyraph</strong> • Graphic Designer</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
