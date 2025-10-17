@@ -6,6 +6,123 @@
   <title>designedbyraph — Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Additional fixes for uniform images and full modal loading */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      background: #000;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-card .pmeta {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: 600;
+      border-radius: 0 0 12px 12px;
+    }
+
+    /* Modal Styling */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-inner {
+      max-width: 95%;
+      width: 800px;
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .modal-text {
+      padding: 15px;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .project-card img {
+        height: 200px;
+      }
+      .modal-inner {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body class="page-projects">
   <header class="site-header">
@@ -14,7 +131,7 @@
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" class="active">Projects</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button class="mobile-menu-btn" aria-label="open menu">☰</button>
@@ -29,24 +146,21 @@
       <p class="lede">Showcasing some of my creative works. Tap any card for details.</p>
 
       <div class="projects-grid" id="all-projects">
-
-        <!-- 1–15 Project Slots -->
-        <article class="project-card" data-title="Project 1" data-desc="Kelmi lodge and event hall" data-img="assets/images/image1.jpg"><img src="assets/images/image1.jpg" alt="image1"><div class="pmeta"><h4>Project 1</h4></div></article>
-        <article class="project-card" data-title="Project 2" data-desc="TGIF!" data-img="assets/images/image2.jpg"><img src="assets/images/image2.jpg" alt="image2"><div class="pmeta"><h4>Project 2</h4></div></article>
-        <article class="project-card" data-title="Project 3" data-desc="DISSOCIATION STORY" data-img="assets/images/image3.jpg"><img src="assets/images/image3.jpg" alt="image3"><div class="pmeta"><h4>Project 3</h4></div></article>
-        <article class="project-card" data-title="Project 4" data-desc="ANCHOR" data-img="assets/images/image4.jpg"><img src="assets/images/image4.jpg" alt="image4"><div class="pmeta"><h4>Project 4</h4></div></article>
-        <article class="project-card" data-title="Project 5" data-desc="E.KITCHEN" data-img="assets/images/image5.jpg"><img src="assets/images/image5.jpg" alt="image5"><div class="pmeta"><h4>Project 5</h4></div></article>
-        <article class="project-card" data-title="Project 6" data-desc="MONDAY MOTIVATION" data-img="assets/images/image6.jpg"><img src="assets/images/image6.jpg" alt="image6"><div class="pmeta"><h4>Project 6</h4></div></article>
-        <article class="project-card" data-title="Project 7" data-desc="AFRA B ANTICIPATION" data-img="assets/images/image7.jpg"><img src="assets/images/image7.jpg" alt="image7"><div class="pmeta"><h4>Project 7</h4></div></article>
-        <article class="project-card" data-title="Project 8" data-desc="MATCHDAY DESIGN" data-img="assets/images/image8.jpg"><img src="assets/images/image8.jpg" alt="image8"><div class="pmeta"><h4>Project 8</h4></div></article>
-        <article class="project-card" data-title="Project 9" data-desc="TKE DESIGN" data-img="assets/images/image9.jpg"><img src="assets/images/image9.jpg" alt="image9"><div class="pmeta"><h4>Project 9</h4></div></article>
-        <article class="project-card" data-title="Project 10" data-desc="COSTOM JERSEY" data-img="assets/images/image10.jpg"><img src="assets/images/image10.jpg" alt="image10"><div class="pmeta"><h4>Project 10</h4></div></article>
-        <article class="project-card" data-title="Project 11" data-desc="RAVE PARTY" data-img="assets/images/image11.jpg"><img src="assets/images/image11.jpg" alt="image11"><div class="pmeta"><h4>Project 11</h4></div></article>
-        <article class="project-card" data-title="Project 12" data-desc="SHOP WITH KUNBMI" data-img="assets/images/image12.jpg"><img src="assets/images/image12.jpg" alt="image12"><div class="pmeta"><h4>Project 12</h4></div></article>
-        <article class="project-card" data-title="Project 13" data-desc="AFRA B ANTICIPATION 2" data-img="assets/images/image13.jpg"><img src="assets/images/image13.jpg" alt="image13"><div class="pmeta"><h4>Project 13</h4></div></article>
-        <article class="project-card" data-title="Project 14" data-desc="EDEN HAZARD APPRECIATION" data-img="assets/images/image14.jpg"><img src="assets/images/image14.jpg" alt="image14"><div class="pmeta"><h4>Project 14</h4></div></article>
-        <article class="project-card" data-title="Project 15" data-desc="STICKERPACK FOR CLOTHING BRAND" data-img="assets/images/image15.jpg"><img src="assets/images/image15.jpg" alt="image15"><div class="pmeta"><h4>Project 15</h4></div></article>
-
+        <article class="project-card" data-title="Project 1" data-desc="Kelmi lodge and event hall" data-img="assets/images/image1.jpg"><img src="assets/images/image1.jpg" alt="image1"><div class="pmeta"><h4>image1</h4></div></article>
+        <article class="project-card" data-title="Project 2" data-desc="TGIF!" data-img="assets/images/image2.jpg"><img src="assets/images/image2.jpg" alt="image2"><div class="pmeta"><h4>image2</h4></div></article>
+        <article class="project-card" data-title="Project 3" data-desc="DISSOCIATION STORY" data-img="assets/images/image3.jpg"><img src="assets/images/image3.jpg" alt="image3"><div class="pmeta"><h4>image3</h4></div></article>
+        <article class="project-card" data-title="Project 4" data-desc="ANCHOR" data-img="assets/images/image4.jpg"><img src="assets/images/image4.jpg" alt="image4"><div class="pmeta"><h4>image4</h4></div></article>
+        <article class="project-card" data-title="Project 5" data-desc="E.KITCHEN" data-img="assets/images/image5.jpg"><img src="assets/images/image5.jpg" alt="image5"><div class="pmeta"><h4>image5</h4></div></article>
+        <article class="project-card" data-title="Project 6" data-desc="MONDAY MOTIVATION" data-img="assets/images/image6.jpg"><img src="assets/images/image6.jpg" alt="image6"><div class="pmeta"><h4>image6</h4></div></article>
+        <article class="project-card" data-title="Project 7" data-desc="AFRA B ANTICIPATION" data-img="assets/images/image7.jpg"><img src="assets/images/image7.jpg" alt="image7"><div class="pmeta"><h4>image7</h4></div></article>
+        <article class="project-card" data-title="Project 8" data-desc="MATCHDAY DESIGN" data-img="assets/images/image8.jpg"><img src="assets/images/image8.jpg" alt="image8"><div class="pmeta"><h4>image8</h4></div></article>
+        <article class="project-card" data-title="Project 9" data-desc="TKE DESIGN" data-img="assets/images/image9.jpg"><img src="assets/images/image9.jpg" alt="image9"><div class="pmeta"><h4>image9</h4></div></article>
+        <article class="project-card" data-title="Project 10" data-desc="COSTOM JERSEY" data-img="assets/images/image10.jpg"><img src="assets/images/image10.jpg" alt="image10"><div class="pmeta"><h4>image10</h4></div></article>
+        <article class="project-card" data-title="Project 11" data-desc="RAVE PARTY" data-img="assets/images/image11.jpg"><img src="assets/images/image11.jpg" alt="image11"><div class="pmeta"><h4>image11</h4></div></article>
+        <article class="project-card" data-title="Project 12" data-desc="SHOP WITH KUNBMI" data-img="assets/images/image12.jpg"><img src="assets/images/image12.jpg" alt="image12"><div class="pmeta"><h4>image12</h4></div></article>
+        <article class="project-card" data-title="Project 13" data-desc="AFRA B ANTICIPATION 2" data-img="assets/images/image13.jpg"><img src="assets/images/image13.jpg" alt="image13"><div class="pmeta"><h4>image13</h4></div></article>
+        <article class="project-card" data-title="Project 14" data-desc="EDEN HAZARD APPRECIATION" data-img="assets/images/image14.jpg"><img src="assets/images/image14.jpg" alt="image14"><div class="pmeta"><h4>image14</h4></div></article>
+        <article class="project-card" data-title="Project 15" data-desc="STICKERPACK FOR CLOTHING BRAND" data-img="assets/images/image15.jpg"><img src="assets/images/image15.jpg" alt="image15"><div class="pmeta"><h4>image15</h4></div></article>
       </div>
     </section>
   </main>
@@ -68,6 +182,31 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    // JS for modal
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.querySelector('.modal-img');
+    const modalTitle = document.querySelector('.modal-title');
+    const modalDesc = document.querySelector('.modal-desc');
+    const closeBtn = document.querySelector('.modal-close');
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modal.classList.add('active');
+        modalImg.src = card.dataset.img;
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  </script>
 </body>
 </html>

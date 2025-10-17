@@ -7,6 +7,118 @@
   <meta name="description" content="About Raph — graphic designer">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* About Page Fixes */
+    .about.container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .about h1 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .about-left {
+      flex: 1 1 45%;
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-left p {
+      margin-bottom: 1rem;
+    }
+
+    .about-left a {
+      color: #9b5de5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .about-left a:hover {
+      color: #00bbf9;
+    }
+
+    .skills {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .skills li {
+      background: rgba(255,255,255,0.08);
+      display: inline-block;
+      margin: 0.4rem 0.5rem 0 0;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .about-right {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-right img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(155,93,229,0.4);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .about-right img:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .about-left, .about-right {
+        flex: 1 1 100%;
+      }
+
+      .about-right img {
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .about h1 {
+        font-size: 1.7rem;
+      }
+
+      .about-left {
+        font-size: 0.95rem;
+      }
+
+      .about-right img {
+        max-width: 280px;
+      }
+    }
+  </style>
 </head>
 <body class="page-about">
   <header class="site-header">
@@ -14,7 +126,7 @@
       <a class="brand" href="index.html">designedbyraph</a>
       <nav class="main-nav">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.html" class="active">About</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </nav>
