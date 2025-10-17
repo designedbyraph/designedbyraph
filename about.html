@@ -122,16 +122,21 @@
 </head>
 <body class="page-about">
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">designedbyraph</a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="mobile-menu-btn" aria-label="open menu">☰</button>
-    </div>
+  <button class="menu-toggle" aria-label="open menu">☰</button>
+
+  <nav class="side-menu" id="sideMenu">
+    <button class="close-btn" aria-label="close menu">✕</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="overlay" id="menuOverlay"></div>
+</header>
+
   </header>
 
   <main>
@@ -150,7 +155,7 @@
           <p>Available for freelance and collaborative projects. <a href="contact.html">Let's talk →</a></p>
         </div>
         <div class="about-right">
-          <img src="assets/images/project-aurora.jpg" alt="Raph portrait">
+          <img src="assets/images/about.jpg" alt="about.jpg">
         </div>
       </div>
     </section>
